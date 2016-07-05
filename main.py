@@ -20,7 +20,7 @@ def parse_json(filename):
 
 def insert_environment(jsondata, env):
     for item in jsondata:
-        item['environment'] = env
+        item['environment'] = [{'name': k, 'value': v} for k, v in env.items()]
 
 
 def handle_single_substitution(text):
