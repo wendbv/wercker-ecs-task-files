@@ -1,0 +1,17 @@
+name: aws-task-files
+version: 0.1.0
+description: Insert settings into ECS task files
+keywords:
+  - aws
+  - ecs
+  - task-files
+properties:
+  task-file:
+    type: string
+    required: true
+  json-format:
+    type: string
+    required: false
+  prefix:
+    type: string
+    required: false
