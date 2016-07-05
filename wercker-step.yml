@@ -15,3 +15,6 @@ properties:
   prefix:
     type: string
     required: false
+  target-file:
+    type: string
+    required: false
