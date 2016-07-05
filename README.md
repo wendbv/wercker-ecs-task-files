@@ -86,11 +86,9 @@ The Wercker step will change the `task-file.json` into the following:
 
 ## Options
 
-- task-file:
-    The base task file that should be used to insert settings in (required).
-- prefix:
-    The prefix that is used to find the variables to insert in to the `environment` section (default `ECS_`).
-- json-format:
-    If set to `terse`, the JSON will not contain newlines.
-- target-file:
-    File to write the new JSON content to (default: same as `task-file`).
+| Option       | Description                                                                                               |
+| ------------ | --------------------------------------------------------------------------------------------------------- |
+| -task-file   | The base task file that should be used to insert settings in (required).                                  |
+| -prefix      | The prefix that is used to find the variables to insert in to the `environment` section (default `ECS_`). |
+| -json-format | If set to `terse`, the JSON will not contain newlines.                                                    |
+| -target-file | File to write the new JSON content to (default: same as `task-file`).                                     |
