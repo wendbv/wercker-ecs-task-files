@@ -25,26 +25,25 @@ if ! type_exists 'python'; then
 fi
 
 # Check variables
-if [ -z "$WERCKER_AWS_TASKFILES_TASKFILE" ]; then
-  error "Please set the 'taskfile' variable"
+if [ -z "$WERCKER_AWS_TASK_FILES_TASK_FILE" ]; then
+  error "Please set the 'task-file' variable"
   exit 1
 fi
 
 ARGUMENTS=""
 
-if [ "$WERCKER_AWS_TASKFILES_PREFIX" ]; then
-    warn "Using prefix $WERCKER_AWS_TASKFILES_PREFIX"
-    ARGUMENTS="$ARGUMENTS""--prefix=$WERCKER_AWS_TASKFILES_PREFIX "
+if [ "$WERCKER_AWS_TASK_FILES_PREFIX" ]; then
+    warn "Using prefix $WERCKER_AWS_TASK_FILES_PREFIX"
+    ARGUMENTS="$ARGUMENTS""--prefix=$WERCKER_AWS_TASK_FILES_PREFIX "
 fi
 
-if [ "$WERCKER_AWS_TASKFILES_JSON_FORMAT" == "terse" ]; then
-    warn "Using JSON format $WERCKER_AWS_TASKFILES_JSON_FORMAT "
+if [ "$WERCKER_AWS_TASK_FILES_JSON_FORMAT" == "terse" ]; then
+    warn "Using JSON format $WERCKER_AWS_TASK_FILES_JSON_FORMAT "
     ARGUMENTS="$ARGUMENTS""--terse"
 fi
 
+ARGUMENTS="$ARGUMENTS$WERCKER_AWS_TASK_FILES_TASK_FILE $WERCKER_AWS_TASK_FILES_TASK_FILE"
+
 if [ -z "$WERCKER_AWS_ECS_SERVICE_NAME" ]; then
-  python "$WERCKER_STEP_ROOT/main.py" \
-    "$ARGUMENTS" \
-    "$WERCKER_AWS_TASKFILES_TASKFILE" \
-    "$WERCKER_AWS_TASKFILES_TASKFILE"
+  python "$WERCKER_STEP_ROOT/main.py" $ARGUMENTS
 fi
