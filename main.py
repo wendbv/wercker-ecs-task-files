@@ -5,6 +5,13 @@ import sys
 import re
 
 
+try:
+    basestring = basestring
+except NameError:
+    # Python 3 has no basestring type
+    basestring = str
+
+
 def get_env_vars(prefix=''):
     return {
         k[len(prefix):]: v
@@ -43,7 +50,7 @@ def handle_substitutions(jsondata):
         return
 
     for k, v in lst:
-        if isinstance(v, str):
+        if isinstance(v, basestring):
             jsondata[k] = handle_single_substitution(v)
         else:
             handle_substitutions(v)
