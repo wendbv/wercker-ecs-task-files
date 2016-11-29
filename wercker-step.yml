@@ -1,5 +1,5 @@
 name: aws-task-files
-version: 0.1.0
+version: 0.2.0
 description: Insert settings into ECS task files
 keywords:
   - aws
@@ -16,5 +16,8 @@ properties:
     type: string
     required: false
   target-file:
+    type: string
+    required: false
+  verbose:
     type: string
     required: false
